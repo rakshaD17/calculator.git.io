@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        #parent
+        {
+            height: 450px;
+            width: 325px;
+            border: 1px solid;
+            border-radius: 50px;
+            margin:0 auto;
+            margin-top: 200px;
+            background-color: rgb(25, 55, 55);
+            box-shadow: border ;
+        
+        }
+        #inp
+        {
+            margin-top: 30px;
+            padding: 15px 30px 15px 30px;
+            margin-left: 30px;
+            border-radius: 50px;
+            font-size: medium;
+        }
+        .row
+        {
+            margin-left: 10px;
+        }
+        .col
+        {
+            height: 45px;
+            width: 45px;
+            margin-top: 25px;
+            margin-left: 20px;
+            border-radius: 50px;
+            font-size: 25px;
+        }
+        #rw
+        {
+            color: firebrick;
+        }
+        #clr
+        {
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+    <div>
+        <input type="text" class="display box" name="" id="inp">
+    </div>
+        <div class="row" id="rw">
+            <input type="button" value="+" onclick="getValue('+')" class="col">
+            <input type="button" value="-" onclick="getValue('-')" class="col">
+            <input type="button" value="*" onclick="getValue('*')" class="col">
+            <input type="button" value="%" onclick="getValue('%')" class="col">
+        </div>
+        <div class="row">
+            <input type="button" value="1" onclick="getValue('1')" class="col">
+            <input type="button" value="2" onclick="getValue('2')" class="col">
+            <input type="button" value="3" onclick="getValue('3')" class="col">
+            <input type="button" value="." onclick="getValue('.')" class="col">
+        </div>
+        <div class="row">
+            <input type="button" value="4" onclick="getValue('4')" class="col">
+            <input type="button" value="5" onclick="getValue('5')" class="col">
+            <input type="button" value="6" onclick="getValue('6')" class="col">
+            <input type="button" value="0" onclick="getValue('0')" class="col">
+        </div>
+        <div class="row">
+            <input type="button" value="7" onclick="getValue('7')" class="col">
+            <input type="button" value="8" onclick="getValue('8')" class="col">
+            <input type="button" value="9" onclick="getValue('9')"class="col">
+            <input type="button" value="=" onclick="calculate('')"  class="col">
+        </div>
+        <div id="cl">
+            <input type="button"value="<=" onclick="backSpace(',')" class="col">
+            <!-- <input type="button" value="7" onclick="getValue('7')" class="col">
+            <input type="button" value="8" onclick="getValue('8')" class="col"> -->
+            <input type="button"value="AC" onclick="clearScreen('')" class="col" id="clr" >
+        </div>
+</div>
+    <script>
+        function clearScreen() {
+            document.getElementById("inp").value ="";
+        }
+         function getValue(value) {
+            document.getElementById("inp").value += value; 
+        }
+        function calculate() {
+            var a=document.getElementById("inp").value;
+            var b=eval(a);
+            document.getElementById("inp").value = b;
+        }
+        function backSpace() {
+            var r = document.getElementById("inp").value;
+            document.getElementById("inp").value = r.substr(0, r.length - 1);
+        }
+    </script>
+</body>
+</html>
